@@ -18,7 +18,7 @@ require (
 	golang.org/x/crypto v0.0.0-20200221231518-2aa609cf4a9d
 	gonum.org/v1/gonum v0.7.0
 	google.golang.org/protobuf v1.26.0
-	gopkg.in/yaml.v2 v2.2.4
+	gopkg.in/yaml.v2 v2.2.8
 )
 
 require (
