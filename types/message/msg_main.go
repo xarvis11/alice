@@ -77,6 +77,7 @@ func (t *MsgMain) Stop() {
 }
 
 func (t *MsgMain) AddMessage(msg types.Message) error {
+	t.logger.Debug("Inside Adding message", "message Channel", t.msgChs.chs)
 	currentMsgType := t.currentHandler.MessageType()
 	newMessageType := msg.GetMessageType()
 	if currentMsgType > newMessageType {
@@ -115,6 +116,7 @@ func (t *MsgMain) messageLoop(ctx context.Context) (err error) {
 		// 3. Handle the message
 		// 4. Check if we collect enough messages
 		// 5. If yes, finalize the handler. Otherwise, wait for the next message
+		t.logger.Debug("Inside message loop", "message Channel", t.msgChs.chs)
 		msg, err := t.msgChs.Pop(ctx, msgType)
 		if err != nil {
 			t.logger.Warn("Failed to pop message", "err", err)
